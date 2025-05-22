@@ -2,27 +2,27 @@
     <div class="col-md-12">
         <div class="card">
             <div class="card-body">
-                <a href="/admin/user/create" class="btn btn-primary mb-2"><i class="fas fa-plus"></i> Tambah</a>
+                <a href="/admin/penyakit/create" class="btn btn-primary mb-2"><i class="fas fa-plus"></i> Tambah</a>
 
                 <table class="table">
                     <tr>
                         <th>No</th>
-                        <th>Nama</th>
-                        <th>Email</th>
-                        <th>Role</th>
+                        <th>Penyakit</th>
                         <th>Action</th>
                     </tr>
 
-                    @foreach ($user as $item)
+                    @foreach ($penyakit as $item)
                     <tr>
                         <td>{{ $loop->iteration }}</td>
-                        <td>{{ $item->name }}</td>
-                        <td>{{ $item->email }}</td>
-                        <td>{{ $item->role }}</td>
+                        <td>
+                            <a href="/admin/penyakit/{{ $item->id }}"><b>
+                            {{ $item->nama_penyakit }}</b>
+                            </a>
+                        </td>
                         <td>
                             <div class="d-flex">
-                                <a href="/admin/user/{{ $item->id }}/edit" class="btn btn-info mr-2"><i class="fas fa-edit">Edit</i></a>
-                                <form action="/admin/user/{{ $item->id }}" method="POST">
+                                <a href="/admin/penyakit/{{ $item->id }}/edit" class="btn btn-info mr-2"><i class="fas fa-edit">Edit</i></a>
+                                <form action="/admin/penyakit/{{ $item->id }}" method="POST">
                                     @method('DELETE')
                                     @csrf
                                     <button type="submit" class="btn btn-danger"><i class="fas fa-trash">Hapus</i></button>

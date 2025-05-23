@@ -39,7 +39,14 @@
                                                     <select name="gejala_id" class="form-control" id="">
                                                         <option value="">-- Gejala --</option>
                                                         @foreach ($gejala as $item)
-                                                            <option value="{{ $item->id }}">{{ $item->kode_gejala.' - '.$item->nama_gejala }}</option>
+
+                                                            @php
+                                                                $cek = \App\Models\Role::whereGejalaId($item->id)->wherePenyakitId($penyakit->id)->first();
+                                                            @endphp
+
+                                                            @if ($cek == false)s
+                                                                <option value="{{ $item->id }}">{{ $item->kode_gejala.' - '.$item->nama_gejala }}</option>
+                                                            @endif
                                                         @endforeach
                                                     </select>
                                                 </div>
@@ -76,7 +83,7 @@
                                     <td>{{ $item->gejala->nama_gejala }}</td>
                                     <td>{{ $item->bobot_cf }}</td>
                                     <td>
-                                        <form action="/admin/penyakit/delete-role/{{ $item->gejala_id }}" method="POST">
+                                        <form action="/admin/penyakit/delete-role/{{ $item->id }}" method="POST">
                                             @method('DELETE')
                                             @csrf
                                             <button type="submit" class="btn btn-danger btn-sm"><i class="fas fa-times"></i></button>

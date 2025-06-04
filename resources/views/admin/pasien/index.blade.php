@@ -8,18 +8,22 @@
                     <tr>
                         <th>No</th>
                         <th>Nama Pasien</th>
+                        <th>Umur</th>
                         <th>Diagnosa Penyakit</th>
                         <th>Keakuratan</th>
                         <th>Action</th>
                     </tr>
 
-                    {{-- @foreach ($pasien as $item)
+                    @foreach ($pasien as $item)
                     <tr>
-                        <td>{{ $loop->iteration }}</td>
-                        <td>{{ $item->nilai_cf }}</td>
+                        <td>{{ $pasien->firstItem() + $loop->index }}</td>
+                        <td><a href="/admin/diagnosa/keputusan/{{ $item->id }}"><b>{{ $item->nama_pasien }}</b></a></td>
+                        <td>{{ $item->umur }}</td>
+                        <td>{{ isset($item->penyakit) ? $item->penyakit->nama_penyakit : 'Data Kosong' }}</td>
+                        <td>{{ $item->persentase }}</td>
                         <td>
                             <div class="d-flex">
-                                <a href="/admin/pasien/{{ $item->id }}/edit" class="btn btn-info mr-2"><i class="fas fa-edit">Edit</i></a>
+                                {{-- <a href="/admin/pasien/{{ $item->id }}/edit" class="btn btn-info mr-2"><i class="fas fa-edit">Edit</i></a> --}}
                                 <form action="/admin/pasien/{{ $item->id }}" method="POST">
                                     @method('DELETE')
                                     @csrf
@@ -28,8 +32,10 @@
                             </div>
                         </td>
                     </tr>
-                    @endforeach --}}
+                    @endforeach
                 </table>
+
+                {{ $pasien->links() }}
             </div>
         </div>
     </div>

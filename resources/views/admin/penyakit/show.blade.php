@@ -13,6 +13,8 @@
                             <b>Solusi</b><br>
                             {{ $penyakit->solusi }}
                         </p>
+
+                        <a href="/admin/penyakit" class="btn btn-info"><i class="fas fa-arrow-left"></i> Kembali</a>
                     </div>
 
                     <div class="col-md-6">

@@ -6,10 +6,11 @@ use App\Http\Controllers\AdminGejalaController;
 use App\Http\Controllers\AdminPasienController;
 use App\Http\Controllers\AdminPenyakitController;
 use App\Http\Controllers\AdminUserController;
+use App\Http\Controllers\UserDiagnosaController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('/admin/auth/login');
 });
 
 Route::get('/login',[AdminAuthController::class, 'index'])->name('login')->middleware('guest');
@@ -40,3 +41,19 @@ Route::prefix('/admin')->middleware('auth')->group(function () {
     Route::post('/penyakit/add-gejala', [AdminPenyakitController::class, 'addGejala']);
     Route::resource('/penyakit', AdminPenyakitController::class);
 });
+
+Route::prefix('/user')->middleware('auth')->group(function () {
+    Route::get('/dashboard', function () {
+       return view('user.layouts.wrapper');
+    //    return view('index');
+    });
+
+    Route::get('/diagnosa', [UserDiagnosaController::class, 'index']);
+    Route::get('/diagnosa/pilih-gejala', [UserDiagnosaController::class, 'pilihGejala']);
+    Route::get('/diagnosa/hapus-gejala', [UserDiagnosaController::class, 'hapusGejalaTerpilih']);
+    Route::get('/diagnosa/proses', [UserDiagnosaController::class, 'prosesDiagnosa']);
+    Route::get('/diagnosa/pilih', [UserDiagnosaController::class, 'pilih']);
+    Route::post('/diagnosa/create-pasien', [UserDiagnosaController::class, 'createPasien']);
+    Route::get('/diagnosa/keputusan/{id}', [UserDiagnosaController::class, 'keputusan']);
+});
+

@@ -20,7 +20,17 @@ class AdminAuthController extends Controller
 
         if(Auth::attempt($data)){
             $request->session()->regenerate();
-            return redirect('/admin/diagnosa');
+            $user = Auth::user();
+
+            if($user->role == 'admin'){
+                Alert::success('Berhasil', 'Anda berhasil masuk ke sistem');
+                return redirect('/admin/diagnosa');
+            } elseif($user->role == 'user') {
+                return redirect(('/user/diagnosa'));
+            } else {
+                Auth::logout();
+                return back()->with('loginError', 'Gagal Login. Data tidak ditemukan');
+            }
         }
 
         return back()->with('loginError', 'Gagal Login. Data tidak ditemukan');

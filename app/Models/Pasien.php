@@ -9,7 +9,8 @@ class Pasien extends Model
 {
     protected $guarded = [];
 
-    function penyakit(){
+    public function penyakit()
+    {
         return $this->belongsTo(Penyakit::class);
     }
 }

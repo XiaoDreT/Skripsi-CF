@@ -8,7 +8,7 @@
                     @csrf
                     <div class="form-group">
                         <label for="">Nama Pasien</label>
-                        <input type="text" class="form-control" required name="nama_pasien" placeholder="Nama Pasien">
+                        <input type="text" class="form-control" value="{{ auth()->user()->name }}" readonly required name="nama_pasien" placeholder="Nama Pasien">
                     </div>
 
                     <div class="form-group">
@@ -18,7 +18,7 @@
 
                     <button type="submit" class="btn btn-primary">Diagnosa <i class="fas fa-arrow-right"></i></button>
                     {{-- <a href="/user/diagnosa/pilih-gejala" class="btn btn-primary">Diagnosa <i class="fas fa-arrow-right"></i></a> --}}
-                
+
                 </form>
             </div>
         </div>

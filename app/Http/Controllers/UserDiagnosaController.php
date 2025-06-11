@@ -19,7 +19,7 @@ class UserDiagnosaController extends Controller
         ];
         return view('user.layouts.wrapper', $data);
     }
-    
+
     function createPasien(Request $request)
     {
         $data = [
@@ -140,5 +140,14 @@ class UserDiagnosaController extends Controller
             'content' => 'user/diagnosa/keputusan',
         ];
         return view('user.layouts.wrapper', $data);
+    }
+
+    public function riwayat_diagnosa()
+    {
+        $name_user = auth()->user()->name;
+
+        $diagnosas = Pasien::where('nama_pasien', $name_user)->with('penyakit')->get();
+
+        return view('user.diagnosa.riwayat', compact('diagnosas'));
     }
 }

@@ -22,9 +22,11 @@
     <!-- Main content -->
     <section class="content">
       <div class="container-fluid">
-        @if ($content)
-            @include($content)
-        @endif
+          @if(isset($content))
+              @include($content)
+          @endif
+
+          @yield('content')
         <!-- /.row -->
       </div><!-- /.container-fluid -->
     </section>

@@ -49,6 +49,7 @@ Route::prefix('/user')->middleware('auth')->group(function () {
     });
 
     Route::get('/diagnosa', [UserDiagnosaController::class, 'index']);
+    Route::get('/diagnosa/riwayat', [UserDiagnosaController::class, 'riwayat_diagnosa']);
     Route::get('/diagnosa/pilih-gejala', [UserDiagnosaController::class, 'pilihGejala']);
     Route::get('/diagnosa/hapus-gejala', [UserDiagnosaController::class, 'hapusGejalaTerpilih']);
     Route::get('/diagnosa/proses', [UserDiagnosaController::class, 'prosesDiagnosa']);

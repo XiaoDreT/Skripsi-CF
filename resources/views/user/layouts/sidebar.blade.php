@@ -13,15 +13,25 @@
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
 
             <li class="nav-item">
-                <a href="/user/diagnosa" class="nav-link {{ request()->is('user/diagnosa*') ? 'active' : '' }}">
-                <i class="nav-icon fas fa-spinner"></i>
+                <a href="/user/diagnosa" class="nav-link {{ request()->is('user/diagnosa') ? 'active' : '' }}">
+                <i class="nav-icon fas fa-medkit"></i>
                 <p>
                     Diagnosa
                     {{-- <span class="right badge badge-danger">New</span> --}}
                 </p>
                 </a>
             </li>
-            
+
+            <li class="nav-item">
+                <a href="/user/diagnosa/riwayat" class="nav-link {{ request()->is('user/diagnosa/riwayat') ? 'active' : '' }}">
+                    <i class="nav-icon fas fa-user"></i>
+                    <p>
+                        Riwayat Diagnosa
+                        {{-- <span class="right badge badge-danger">New</span> --}}
+                    </p>
+                </a>
+            </li>
+
         </ul>
       </nav>
       <!-- /.sidebar-menu -->

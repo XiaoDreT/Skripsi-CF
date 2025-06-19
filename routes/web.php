@@ -6,12 +6,11 @@ use App\Http\Controllers\AdminGejalaController;
 use App\Http\Controllers\AdminPasienController;
 use App\Http\Controllers\AdminPenyakitController;
 use App\Http\Controllers\AdminUserController;
+use App\Http\Controllers\LandingController;
 use App\Http\Controllers\UserDiagnosaController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('/admin/auth/login');
-});
+Route::get('/', [LandingController::class,'index'])->name('home');
 
 Route::get('/login',[AdminAuthController::class, 'index'])->name('login')->middleware('guest');
 Route::post('/login',[AdminAuthController::class, 'login'])->middleware('guest');

@@ -2,7 +2,7 @@
   <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
     <a href="/index3.html" class="brand-link">
-      <img src="/dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+      <i class="fas fa-stethoscope brand-image elevation-3" style="opacity: .8; margin-top: 0;"></i>
       <span class="brand-text font-weight-light">Sistem Pakar</span>
     </a>
 
@@ -24,7 +24,7 @@
 
             <li class="nav-item">
                 <a href="/user/diagnosa/riwayat" class="nav-link {{ request()->is('user/diagnosa/riwayat') ? 'active' : '' }}">
-                    <i class="nav-icon fas fa-user"></i>
+                    <i class="nav-icon fas fa-clock"></i>
                     <p>
                         Riwayat Diagnosa
                         {{-- <span class="right badge badge-danger">New</span> --}}

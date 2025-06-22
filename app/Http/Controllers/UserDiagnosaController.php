@@ -8,6 +8,7 @@ use App\Models\Pasien;
 use App\Models\Penyakit;
 use App\Models\Role;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class UserDiagnosaController extends Controller
 {
@@ -144,7 +145,7 @@ class UserDiagnosaController extends Controller
 
     public function riwayat_diagnosa()
     {
-        $name_user = auth()->user()->name;
+        $name_user = Auth::user()->name;
 
         $diagnosas = Pasien::where('nama_pasien', $name_user)->with('penyakit')->get();
 

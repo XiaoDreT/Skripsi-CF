@@ -51,7 +51,7 @@
                   <div class="container">
                     <h1 class="banner_taital">Diagnosa Cepat dan Akurat</h1>
                     <p class="banner_text">Gunakan Sistem Pakar untuk membantu mendiagnosis gejala penyakit secara cepat, tepat, dan efisien.</p>
-                    <div class="more_bt"><a href="#">Mulai Konsultasi</a></div>
+                    <div class="more_bt"><a href="/login">Mulai Konsultasi</a></div>
                   </div>
                 </div>
                 <div class="col-md-6">

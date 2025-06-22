@@ -4,7 +4,7 @@
             <div class="card-body">
                 
                 <a href="/user/diagnosa" class="btn btn-primary mb-2"><i class="fas fa-file"></i> Diagnosa Baru</a>
-                <a href="/user/pasien/cetak/{{ $pasien->id }}" target="blank" class="btn btn-warning mb-2"><i class="fas fa-print"></i> Cetak</a>
+                <a href="/user/diagnosa/cetak/{{ $pasien->id }}" target="blank" class="btn btn-warning mb-2"><i class="fas fa-print"></i> Cetak</a>
 
                 <div class="row">
                     <div class="col-md-6">
@@ -65,6 +65,7 @@
                             @endif
                             @endforeach
                         </table>
+                        <a href="/user/diagnosa/riwayat" class="btn btn-info"><i class="fas fa-arrow-left"></i> Kembali</a>
                     </div>
                 </div>
 

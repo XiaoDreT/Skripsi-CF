@@ -18,7 +18,7 @@
   <!-- /.login-logo -->
   <div class="card card-outline card-primary">
     <div class="card-header text-center">
-      <a href="/index2.html" class="h1"><b>SISTEM PAKAR</b></a>
+      <a href="#" class="h1"><b>SISTEM PAKAR</b></a>
     </div>
     <div class="card-body">
       <p class="login-box-msg">Sign in to start your session</p>
@@ -57,7 +57,10 @@
           @enderror
         </div>
           <!-- /.col -->
-          <div class="col-4">
+          <div class="mb-3 text-center">
+            <a href="/register">Anda belum memiliki akun? Daftar sekarang</a>
+          </div>
+          <div class="col-4 offset-4">
             <button type="submit" class="btn btn-primary btn-block">Sign In</button>
           </div>
           <!-- /.col -->

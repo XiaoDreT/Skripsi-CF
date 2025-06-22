@@ -10,9 +10,12 @@
     <!-- Right navbar links -->
     <ul class="navbar-nav ml-auto">
       <li class="nav-item">
-        <a class="nav-link" href="/logout" role="button">
-          <i class="fas fa-sign-out-alt"></i>
-        </a>
+          <div class="d-flex align-items-center">
+              <p class="m-0 p-0">{{ auth()->user()->email }}</p>
+              <a class="nav-link" href="/logout" role="button">
+                  <i class="fas fa-sign-out-alt"></i>
+              </a>
+          </div>
       </li>
     </ul>
   </nav>

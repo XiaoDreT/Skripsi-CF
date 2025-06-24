@@ -82,6 +82,15 @@ class UserDiagnosaController extends Controller
         $penyakit_id = '';
 
         $role = Role::get();
+        $count = 0;
+
+        // Cek 
+        $diagnosaCount = Diagnosa::wherePasienId($pasien_id)->count();
+        
+        if ($diagnosaCount <= 1){
+            return redirect('/user/diagnosa/pilih-gejala')->with('warning', 'Silakan pilih lebih dari satu gejala terlebih dahulu.');
+        }
+
         foreach($role as $r){
             $diagnosa = Diagnosa::wherePasienId($pasien_id)->wherePenyakitId($r->penyakit_id)->whereGejalaId($r->gejala_id)->first();
 
@@ -95,6 +104,8 @@ class UserDiagnosaController extends Controller
                 ];
 
                 Diagnosa::create($data);
+            }else{
+                $count += 1;
             }
         }
 

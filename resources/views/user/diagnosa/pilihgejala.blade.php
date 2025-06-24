@@ -89,6 +89,19 @@
                     </div>
                 </div>
 
+                <!-- Tambahkan ini di layout atau halaman yang menerima redirect -->
+                <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+                <script>
+                    @if(session('warning'))
+                        Swal.fire({
+                            icon: 'warning',
+                            title: 'Perhatian!',
+                            text: "{{ session('warning') }}",
+                        });
+                    @endif
+                </script>
+
             </div>
         </div>
     </div>

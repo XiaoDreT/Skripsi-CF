@@ -25,7 +25,7 @@
                                 <th>No</th>
                                 <th>Kode</th>
                                 <th>Gejala</th>
-                                <th>#</th>
+                                <th>Aksi</th>
                             </tr>
 
                             @foreach ($gejala as $item)
@@ -88,6 +88,19 @@
                         <a href="/admin/diagnosa/proses" class="btn btn-primary btn-block"><i class="fas fa-circle"></i> Diagnosa</a>
                     </div>
                 </div>
+
+                <!-- Tambahkan ini di layout atau halaman yang menerima redirect -->
+                <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+                <script>
+                    @if(session('warning'))
+                        Swal.fire({
+                            icon: 'warning',
+                            title: 'Perhatian!',
+                            text: "{{ session('warning') }}",
+                        });
+                    @endif
+                </script>
 
             </div>
         </div>

@@ -56,7 +56,7 @@ class AdminPenyakitController extends Controller
     {
         $role = Role::with('gejala')->where('penyakit_id', $id)->get();
         $data = [
-            'title' => 'Tambah Penyakit',
+            'title' => 'Detail Penyakit',
             'penyakit' => Penyakit::find($id),
             'gejala' => Gejala::get(),
             'role' => $role,

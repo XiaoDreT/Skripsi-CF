@@ -2,36 +2,49 @@
     <div class="col-md-12">
         <div class="card">
             <div class="card-body">
-                <a href="/admin/penyakit/create" class="btn btn-primary mb-2"><i class="fas fa-plus"></i> Tambah</a>
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <h5 class="card-title mb-0">Data Penyakit</h5>
+                    <a href="/admin/penyakit/create" class="btn btn-primary"><i class="fas fa-plus"></i> Tambah</a>
+                </div>
 
-                <table class="table">
-                    <tr>
-                        <th>No</th>
-                        <th>Penyakit</th>
-                        <th>Action</th>
-                    </tr>
-
-                    @foreach ($penyakit as $item)
-                    <tr>
-                        <td>{{ $loop->iteration }}</td>
-                        <td>
-                            <a href="/admin/penyakit/{{ $item->id }}"><b>
-                            {{ $item->nama_penyakit }}</b>
-                            </a>
-                        </td>
-                        <td>
-                            <div class="d-flex">
-                                <a href="/admin/penyakit/{{ $item->id }}/edit" class="btn btn-info mr-2"><i class="fas fa-edit">Edit</i></a>
-                                <form action="/admin/penyakit/{{ $item->id }}" method="POST">
-                                    @method('DELETE')
-                                    @csrf
-                                    <button type="submit" class="btn btn-danger"><i class="fas fa-trash">Hapus</i></button>
-                                </form>
-                            </div>
-                        </td>
-                    </tr>
-                    @endforeach
-                </table>
+                <div class="table-responsive">
+                    <table class="table table-striped table-hover">
+                        <thead class="thead-dark">
+                            <tr>
+                                <th width="10%">No</th>
+                                <th width="70%">Penyakit</th>
+                                <th width="20%">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach ($penyakit as $item)
+                            <tr>
+                                <td>{{ $loop->iteration }}</td>
+                                <td>
+                                    <a href="/admin/penyakit/{{ $item->id }}" class="text-decoration-none">
+                                        <strong>{{ $item->nama_penyakit }}</strong>
+                                    </a>
+                                </td>
+                                <td>
+                                    <div class="btn-group" role="group">
+                                        <a href="/admin/penyakit/{{ $item->id }}/edit" class="btn btn-sm btn-info">
+                                            <i class="fas fa-edit"></i> Edit
+                                        </a>
+                                        <form action="/admin/penyakit/{{ $item->id }}" method="POST" class="d-inline">
+                                            @method('DELETE')
+                                            @csrf
+                                            <button type="submit" class="btn btn-sm btn-danger" 
+                                                    onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?')">
+                                                <i class="fas fa-trash"></i> Hapus
+                                            </button>
+                                        </form>
+                                    </div>
+                                </td>
+                            </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
     </div>

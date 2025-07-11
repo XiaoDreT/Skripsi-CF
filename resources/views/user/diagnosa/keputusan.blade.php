@@ -52,7 +52,7 @@
                             <tr>
                                 <th>No</th>
                                 <th>Gejala</th>
-                                <th>Nilai</th>
+                                <th>Nilai CF Akhir</th>
                             </tr>
 
                             @foreach ($gejala as $item)

@@ -49,11 +49,12 @@
                                         <span class="sr-only">Toggle Dropdown</span>
                                         </button>
                                         <div class="dropdown-menu" role="menu" style="">
-                                        <a class="dropdown-item" href="/user/diagnosa/pilih?gejala_id={{ $item->id }}&nilai=1">Sangat Yakin</a>
-                                        <a class="dropdown-item" href="/user/diagnosa/pilih?gejala_id={{ $item->id }}&nilai=0.8">Yakin</a>
-                                        <a class="dropdown-item" href="/user/diagnosa/pilih?gejala_id={{ $item->id }}&nilai=0.6">Cukup Yakin</a>
-                                        <a class="dropdown-item" href="/user/diagnosa/pilih?gejala_id={{ $item->id }}&nilai=0.4">Sedikit Yakin</a>
-                                        <a class="dropdown-item" href="/user/diagnosa/pilih?gejala_id={{ $item->id }}&nilai=0.2">Tidak Tahu</a>
+                                        <a class="dropdown-item" href="/user/diagnosa/pilih?gejala_id={{ $item->id }}&nilai=1">Sangat Yakin (100%)</a>
+                                        <a class="dropdown-item" href="/user/diagnosa/pilih?gejala_id={{ $item->id }}&nilai=0.8">Yakin (80%)</a>
+                                        <a class="dropdown-item" href="/user/diagnosa/pilih?gejala_id={{ $item->id }}&nilai=0.6">Cukup Yakin (60%)</a>
+                                        <a class="dropdown-item" href="/user/diagnosa/pilih?gejala_id={{ $item->id }}&nilai=0.4">Sedikit Yakin (40%)</a>
+                                        <a class="dropdown-item" href="/user/diagnosa/pilih?gejala_id={{ $item->id }}&nilai=0.2">Tidak Tahu (20%)</a>
+                                        <a class="dropdown-item" href="/user/diagnosa/pilih?gejala_id={{ $item->id }}&nilai=0">Tidak Mengalami (0%)</a>
                                     </div>
                                 </td>
                             </tr>
@@ -68,6 +69,7 @@
                                 <th>No</th>
                                 <th>Kode</th>
                                 <th>Gejala</th>
+                                <th>Keyakinan</th>
                                 <th>#</th>
                             </tr>
 
@@ -77,6 +79,7 @@
                                 <td>{{ $loop->iteration }}</td>
                                 <td>{{ $item->gejala->kode_gejala }}</td>
                                 <td>{{ $item->gejala->nama_gejala }}</td>
+                                <td>{{ $item->nilai_cf }}</td>
                                 <td>
                                     <a href="/user/diagnosa/hapus-gejala?gejala_id={{ $item->gejala_id }}" class="btn btn-danger btn-sm"><i class="fas fa-times"></i></a>
                                 </td>
